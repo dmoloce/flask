@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de cumpărături</title>
+</head>
+<body>
+    <h1>Lista de cumpărături</h1>
+    <ul>
+        {% for produs in produse %}
+            <li>{{ produs.nume }} - {% if produs.cumparat %}Cumpărat{% else %}Ne-cumpărat{% endif %} - <form action="{{ url_for('sterge_produs', id=produs.id) }}" method="post"><button type="submit">Șterge</button></form></li>
+        {% endfor %}
+    </ul>
+    <a href="{{ url_for('adauga_produs') }}">Adaugă produs</a>
+</body>
+</html>

@@ -1,0 +1,16 @@
+<!-- templates/stergere.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stergere produs</title>
+</head>
+<body>
+    <h1>Stergere produs</h1>
+    <form action="{{ url_for('sterge_produs', id=produs_id) }}" method="post">
+        <button type="submit">Șterge</button>
+    </form>
+    <a href="{{ url_for('lista_produse') }}">Înapoi la listă</a>
+</body>
+</html>
