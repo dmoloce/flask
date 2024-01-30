@@ -37,5 +37,12 @@ def sterge_produs(id):
 
     return render_template('stergere.html', produs_id=id)
 
+@app.route('/actualizeaza_cumparat/<int:id>', methods=['POST'])
+def actualizeaza_cumparat(id):
+    produs = Produs.query.get_or_404(id)
+    produs.cumparat = not produs.cumparat
+    db.session.commit()
+    return redirect(url_for('lista_produse'))
+
 if __name__ == '__main__':
     app.run(debug=True)
